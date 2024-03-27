@@ -45,6 +45,9 @@ function setTimer(newMinutes) {
 
 function startTimer() {
     if (modeSelected && !isRunning) {
+        if (currentMode === "short-break" || currentMode == "long-break") {
+            showExerciseName();
+        }
         intervalId = setInterval(updateTimer, 1000);
         isRunning = true;
     } else {
@@ -71,6 +74,14 @@ function updateTimer() {
         if (minutes === 0) {
             clearInterval(intervalId);
             isRunning = false;
+            if (currentMode !== "pomodoro-timer") {
+                confirm("Complete exercise!");
+                resetTimer();
+                currentExercise++;
+            } else {
+                alert("Pomodoro timer completed");
+                resetTimer();
+            }
             return;
         }
         minutes--;
@@ -82,8 +93,8 @@ function updateTimer() {
 }
 
 function updateDisplay() {
-    document.getElementById("minutes").innerText =
-        minutes < 10 ? "0" + minutes : minutes;
-    document.getElementById("seconds").innerText =
-        seconds < 10 ? "0" + seconds : seconds;
+    document.getElementById("minutes")
+        .innerText = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds")
+        .innerText = seconds < 10 ? "0" + seconds : seconds;
 }
