@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --color-primary: #1e213f;
+    --color-secondary: #2e325a;
+    --color-tertiary: #d7e0ff;
+    --color-hover-primary: #f87070;
+    --color-hover-secondary: #f13b3b;
+    --color-hover-tertiary: #219a52;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-primary);
+    color: var(--color-tertiary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    height: 100vh;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    font-size: 8rem;
+    font-weight: bold;
+}
+
+.controls {
+    margin-top: 2rem;
+}
+
+button {
+    text-transform: uppercase;
+    background-color: var(--color-secondary);
+    color: var(--color-tertiary);
+    padding: 1rem 2rem;
+    margin: 0 .5rem;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--color-hover-primary);
+}
+
+#btn-start:hover {
+    background-color: var(--color-hover-tertiary);
+}
+
+#btn-stop:hover {
+    background-color: var(--color-hover-primary);
+}
+
+#btn-reset:hover {
+    background-color: var(--color-hover-secondary);
+}
+
+#show-exercise-name {
+    font-weight: 700;
+    color: var(--color-hover-tertiary);
+}
