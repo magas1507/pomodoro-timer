@@ -48,7 +48,7 @@ function startTimer() {
         if (currentMode === "short-break" || currentMode == "long-break") {
             showExerciseName();
         }
-        intervalId = setInterval(updateTimer, 1);
+        intervalId = setInterval(updateTimer, 1000);
         isRunning = true;
     } else {
         alert("Please select a timer before starting.");
