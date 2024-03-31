@@ -48,7 +48,7 @@ function startTimer() {
         if (currentMode === "short-break" || currentMode == "long-break") {
             showExerciseName();
         }
-        intervalId = setInterval(updateTimer, 1000);
+        intervalId = setInterval(updateTimer, 1);
         isRunning = true;
     } else {
         alert("Please select a timer before starting.");
@@ -78,6 +78,7 @@ function updateTimer() {
                 confirm("Complete exercise!");
                 resetTimer();
                 currentExercise++;
+                localStorage.setItem('currentExercise', currentExercise.toString());
             } else {
                 alert("Pomodoro timer completed");
                 resetTimer();

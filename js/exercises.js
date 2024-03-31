@@ -40,9 +40,11 @@ function getExercises() {
 
 const savedExercises = localStorage.getItem('exercisesList');
 const savedOffset = localStorage.getItem('offset');
+const savedCurrentExercise = localStorage.getItem('currentExercise');
 if (savedExercises && savedOffset) {
     exercisesList = JSON.parse(savedExercises);
     offset = parseInt(savedOffset);
+    currentExercise = parseInt(savedCurrentExercise);
     console.log('Exercícios carregados do localStorage');
 } else {
     getExercises();
