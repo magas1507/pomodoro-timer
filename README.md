@@ -9,7 +9,7 @@ O objetivo deste projeto foi o desenvolvimento de um Pomodoro para auxiliar as p
 
  - HTML 5
  - CSS 3
- - JavaScrip
+ - JavaScript
  - API-Ninjas
 
  ## Pré-requisitos: 
