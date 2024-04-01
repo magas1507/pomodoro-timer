@@ -13,8 +13,6 @@ let startButtonElement = document.getElementById("btn-start");
 let pauseButtonElement = document.getElementById("btn-pause");
 let resetButtonElement = document.getElementById("btn-reset");
 
-let showExerciseElement = document.getElementById("show-exercise-name");
-
 pomodoroTimerElement.addEventListener("click", function () {
   currentMode = "pomodoro-timer";
   setTimer(25);
@@ -44,11 +42,8 @@ function setTimer(newMinutes) {
 }
 
 function startTimer() {
-  if (modeSelected && !isRunning) {
-    if (currentMode === "short-break" || currentMode == "long-break") {
-      showExerciseName();
-    }
-    intervalId = setInterval(updateTimer, 1000);
+  if (modeSelected && !isRunning) {  
+    intervalId = setInterval(updateTimer, 10);
     isRunning = true;
   } else {
     alert("Please select a timer before starting.");
@@ -66,7 +61,7 @@ function resetTimer() {
   minutes = initialMinutes;
   seconds = 0;
   updateDisplay();
-  showExerciseElement.innerText = "";
+  
 }
 
 function updateTimer() {
