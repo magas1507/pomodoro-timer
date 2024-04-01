@@ -68,5 +68,11 @@ button:hover {
 
 #show-exercise-name {
     font-weight: 700;
+    align-items: center;
     color: var(--color-hover-tertiary);
+}
+
+#completeExerciseButton{
+    margin-top: 10px;
+    align-items: center;
 }

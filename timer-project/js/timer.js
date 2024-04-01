@@ -13,6 +13,8 @@ let startButtonElement = document.getElementById("btn-start");
 let pauseButtonElement = document.getElementById("btn-pause");
 let resetButtonElement = document.getElementById("btn-reset");
 
+let showExerciseElement = document.getElementById("show-exercise-name");
+
 pomodoroTimerElement.addEventListener("click", function () {
   currentMode = "pomodoro-timer";
   setTimer(25);
@@ -31,6 +33,7 @@ longBreakElement.addEventListener("click", function () {
 startButtonElement.addEventListener("click", startTimer);
 pauseButtonElement.addEventListener("click", pauseTimer);
 resetButtonElement.addEventListener("click", resetTimer);
+completeExerciseButton.style.display = "none";
 
 function setTimer(newMinutes) {
   if (!isRunning) {
@@ -42,13 +45,17 @@ function setTimer(newMinutes) {
 }
 
 function startTimer() {
-  if (modeSelected && !isRunning) {  
+  if (modeSelected && !isRunning) {
+    if (currentMode === "short-break" || currentMode == "long-break") {
+      showExerciseName();
+    }
     intervalId = setInterval(updateTimer, 10);
     isRunning = true;
   } else {
     alert("Please select a timer before starting.");
   }
 }
+
 
 function pauseTimer() {
   clearInterval(intervalId);
@@ -61,8 +68,10 @@ function resetTimer() {
   minutes = initialMinutes;
   seconds = 0;
   updateDisplay();
-  
+  showExerciseElement.innerText = "";
+  completeExerciseButton.style.display = "none";
 }
+
 
 function updateTimer() {
   if (seconds === 0) {
@@ -70,8 +79,12 @@ function updateTimer() {
       clearInterval(intervalId);
       isRunning = false;
       if (currentMode !== "pomodoro-timer") {
+        confirm("Complete exercise!");
         resetTimer();
-        currentExercise++;       
+        currentExercise++;
+        showExerciseName();
+        completeExerciseButton.style.display = "block";
+
       } else {
         alert("Pomodoro timer completed");
         resetTimer();
@@ -85,6 +98,11 @@ function updateTimer() {
   }
   updateDisplay();
 }
+
+document.getElementById("completeExerciseButton").addEventListener("click", function () {
+  alert("Exercício completado")
+  resetTimer()
+});
 
 function updateDisplay() {
   document.getElementById("minutes")
