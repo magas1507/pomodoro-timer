@@ -75,10 +75,8 @@ function updateTimer() {
       clearInterval(intervalId);
       isRunning = false;
       if (currentMode !== "pomodoro-timer") {
-        confirm("Complete exercise!");
         resetTimer();
-        currentExercise++;
-        localStorage.setItem('currentExercise', currentExercise.toString());
+        currentExercise++;       
       } else {
         alert("Pomodoro timer completed");
         resetTimer();
