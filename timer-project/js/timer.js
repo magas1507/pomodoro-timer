@@ -49,7 +49,7 @@ function startTimer() {
     if (currentMode === "short-break" || currentMode == "long-break") {
       showExerciseName();
     }
-    intervalId = setInterval(updateTimer, 1000);
+    intervalId = setInterval(updateTimer, 10);
     isRunning = true;
   } else {
     alert("Please select a timer before starting.");
@@ -82,6 +82,7 @@ function updateTimer() {
         confirm("Complete exercise!");
         resetTimer();
         currentExercise++;
+        localStorage.setItem('currentExercise', currentExercise.toString());
         showExerciseName();
         completeExerciseButton.style.display = "block";
 
