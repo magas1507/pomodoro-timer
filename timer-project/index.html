@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+    <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-svg" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <h1>Healthy Pomodoro &#127939;</h1>
+
+    <div class="set-timer-controls">
+      <button id="pomodoro-timer">Pomodoro Timer</button>
+      <button id="short-break">Short Break</button>
+      <button id="long-break">Long Break</button>
+    </div>
+
+    <div class="timer">
+      <div id="minutes">25</div>
+      <div>:</div>
+      <div id="seconds">00</div>
+    </div>
+
+    <div class="controls">
+      <button id="btn-start">Start</button>
+      <button id="btn-pause">Pause</button>
+      <button id="btn-reset">Reset</button>
+    </div>
+
+    <div class="exercise-container">
+      <h2 id="show-exercise-name"></h2>
+    </div>
+    <script src="./js/exercises.js"></script>
+    <script src="./js/timer.js"></script>
+  </body>
+</html>
